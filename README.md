@@ -2,55 +2,82 @@
 
 📌 Project Overview
 
-The portfolio website code is stored in a GitHub repository. Whenever changes are pushed to the repository, a GitHub Actions CI/CD workflow is triggered automatically, which syncs the updated files to an AWS S3 bucket.
-
-The website is then served using AWS S3 Static Website Hosting, making it publicly accessible via an S3 endpoint.
+  The portfolio website code is stored in a GitHub repository. Whenever changes are pushed to the repository, a GitHub Actions CI/CD workflow is triggered automatically, which syncs the updated files to an AWS S3 bucket.
+  
+  The website is then served using AWS S3 Static Website Hosting, making it publicly accessible via an S3 endpoint.
 
 🏗️ Architecture / Workflow
 
 🔄 Flow of the System
 
-Code is stored in GitHub repository
-GitHub Actions workflow is triggered on push (main branch)
-Workflow authenticates with AWS using IAM credentials
-Files are synced to AWS S3 bucket
-S3 hosts the static website
-Website is accessible via S3 endpoint
+  Code is stored in GitHub repository
+  
+  GitHub Actions workflow is triggered on push (main branch)
+  
+  Workflow authenticates with AWS using IAM credentials
+  
+  Files are synced to AWS S3 bucket
+  
+  S3 hosts the static website
+  
+  Website is accessible via S3 endpoint
+
+
 ⚙️ Technologies Used
-☁️ AWS S3 (Static Website Hosting)
-🔐 AWS IAM (Access Management)
-🔄 GitHub Actions (CI/CD Pipeline)
-💻 HTML, CSS, JavaScript
+
+  ☁️ AWS S3 (Static Website Hosting)
+  
+  🔐 AWS IAM (Access Management)
+  
+  🔄 GitHub Actions (CI/CD Pipeline)
+  
+  💻 HTML, CSS, JavaScript
+
+
 🔄 CI/CD Workflow
-Trigger
-Push to main branch
-Actions Performed
-Checkout repository code
-Authenticate with AWS using IAM credentials
-Sync project files to S3 bucket
-Deploy updated website automatically
-🔐 Secure Configuration
-✅ GitHub Secrets Used
+
+  Trigger
+  
+  Push to main branch
+  
+  Actions Performed
+  
+  Checkout repository code
+  
+  Authenticate with AWS using IAM credentials
+  
+  Sync project files to S3 bucket
+  
+  Deploy updated website automatically
+  
+  🔐 Secure Configuration
+  
+  ✅ GitHub Secrets Used
+
+
 Secret Name	Description
-AWS_ACCESS_KEY_ID	IAM Access Key
-AWS_SECRET_ACCESS_KEY	IAM Secret Key
+
+  AWS_ACCESS_KEY_ID	IAM Access Key
+  
+  AWS_SECRET_ACCESS_KEY	IAM Secret Key
 
 
 📌 Stored securely in:
 
-Repository → Settings → Secrets → Actions
+  Repository → Settings → Secrets → Actions
+
 
 ☁️ AWS Setup
 
-✔️ Created IAM user with S3 permissions
-
-✔️ Generated Access Key & Secret Key
-
-✔️ Created S3 bucket manually
-
-✔️ Enabled static website hosting
-
-✔️ Configured public access via bucket policy
+  ✔️ Created IAM user with S3 permissions
+  
+  ✔️ Generated Access Key & Secret Key
+  
+  ✔️ Created S3 bucket manually
+  
+  ✔️ Enabled static website hosting
+  
+  ✔️ Configured public access via bucket policy
 
 
 📂 Deployment Steps
@@ -121,47 +148,47 @@ jobs:
 
 🌐 Live Website
 
-http://<your-bucket-name>.s3-website-<region>.amazonaws.com
+  http://<your-bucket-name>.s3-website-<region>.amazonaws.com
 
 
 📸 Output
 
-✔ Portfolio hosted on AWS S3
-
-✔ CI/CD pipeline fully automated
-
-✔Real-time updates on every push
+  ✔ Portfolio hosted on AWS S3
+  
+  ✔ CI/CD pipeline fully automated
+  
+  ✔Real-time updates on every push
 
 
 💡 Key Learnings
 
-CI/CD pipeline using GitHub Actions
-
-AWS S3 static website hosting
-
-Secure credential management using GitHub Secrets
-
-Automation of deployment workflow
+  CI/CD pipeline using GitHub Actions
+  
+  AWS S3 static website hosting
+  
+  Secure credential management using GitHub Secrets
+  
+  Automation of deployment workflow
 
 
 🚀 Future Enhancements
 
-🌍 Add CloudFront CDN for performance
-
-🔒 Enable HTTPS using AWS ACM
-
-🌐 Attach custom domain using Route 53
-
-📊 Add monitoring and logging
+  🌍 Add CloudFront CDN for performance
+  
+  🔒 Enable HTTPS using AWS ACM
+  
+  🌐 Attach custom domain using Route 53
+  
+  📊 Add monitoring and logging
 
 
 👨‍💻 Author
 
-Adnan Shaikh
+  Adnan Shaikh
 
-🚀 DevOps & Cloud Enthusiast
+  🚀 DevOps & Cloud Enthusiast
 
 
 ⭐ Support
 
-If you like this project, please consider giving it a ⭐ on GitHub!
+  If you like this project, please consider giving it a ⭐ on GitHub!
