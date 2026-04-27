@@ -1,5 +1,10 @@
-🚀 Portfolio Website Deployment using AWS S3 & GitHub Actions
+##🚀 Portfolio Website Deployment using AWS S3 & GitHub Actions
 
+## Architecture & Workflow
+
+<img width="1536" height="1024" alt="Portfolio website deploy" src="https://github.com/user-attachments/assets/8cb65e10-6c88-4206-a363-b36736f1649d" />
+
+This diagram shows the CI/CD pipeline where GitHub Actions deploys the portfolio website to AWS S3 and serves it via CloudFront.
 📌 Project Overview
 
   The portfolio website code is stored in a GitHub repository. Whenever changes are pushed to the repository, a GitHub Actions CI/CD workflow is triggered automatically, which syncs the updated files to an AWS S3 bucket.
