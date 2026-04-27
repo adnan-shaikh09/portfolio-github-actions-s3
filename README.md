@@ -1,129 +1,126 @@
-##🚀 Portfolio Website Deployment using AWS S3 & GitHub Actions
+# 🚀 Portfolio Website Deployment using AWS S3 & GitHub Actions
 
-## Architecture & Workflow
+<p align="center">
+  <img src="https://img.shields.io/badge/AWS-S3-orange?logo=amazon-aws" />
+  <img src="https://img.shields.io/badge/CI/CD-GitHub_Actions-blue?logo=githubactions" />
+  <img src="https://img.shields.io/badge/Frontend-HTML%2FCSS%2FJS-yellow" />
+  <img src="https://img.shields.io/badge/Status-Live-success" />
+</p>
 
-<img width="1536" height="1024" alt="Portfolio website deploy" src="https://github.com/user-attachments/assets/8cb65e10-6c88-4206-a363-b36736f1649d" />
+---
 
-This diagram shows the CI/CD pipeline where GitHub Actions deploys the portfolio website to AWS S3 and serves it via CloudFront.
-📌 Project Overview
+## 🏗️ Architecture & Workflow
 
-  The portfolio website code is stored in a GitHub repository. Whenever changes are pushed to the repository, a GitHub Actions CI/CD workflow is triggered automatically, which syncs the updated files to an AWS S3 bucket.
-  
-  The website is then served using AWS S3 Static Website Hosting, making it publicly accessible via an S3 endpoint.
+<p align="center">
+<img width="1536" height="1024" alt="Portfolio website deploy" src="https://github.com/user-attachments/assets/489968e8-ca59-4f31-b114-571930f778ba" />
 
-🏗️ Architecture / Workflow
+</p>
 
-🔄 Flow of the System
+<p align="center">
+  <i>Automated CI/CD pipeline deploying portfolio website to AWS S3</i>
+</p>
 
-  Code is stored in GitHub repository
-  
-  GitHub Actions workflow is triggered on push (main branch)
-  
-  Workflow authenticates with AWS using IAM credentials
-  
-  Files are synced to AWS S3 bucket
-  
-  S3 hosts the static website
-  
-  Website is accessible via S3 endpoint
+---
 
+## 📌 Project Overview
 
-⚙️ Technologies Used
+This project demonstrates a fully automated CI/CD pipeline that deploys a static portfolio website to AWS.
 
-  ☁️ AWS S3 (Static Website Hosting)
-  
-  🔐 AWS IAM (Access Management)
-  
-  🔄 GitHub Actions (CI/CD Pipeline)
-  
-  💻 HTML, CSS, JavaScript
+- Code is stored in GitHub  
+- GitHub Actions automates deployment  
+- AWS S3 hosts the website  
+- Updates are reflected instantly on every push  
 
+---
 
-🔄 CI/CD Workflow
+## 🔄 Workflow
 
-  Trigger
-  
-  Push to main branch
-  
-  Actions Performed
-  
-  Checkout repository code
-  
-  Authenticate with AWS using IAM credentials
-  
-  Sync project files to S3 bucket
-  
-  Deploy updated website automatically
-  
-  🔐 Secure Configuration
-  
-  ✅ GitHub Secrets Used
+Developer → GitHub → GitHub Actions → AWS S3 → Website Live
 
+- Push code to GitHub  
+- Workflow is triggered  
+- Authenticate with AWS (IAM)  
+- Sync files to S3  
+- Website updated automatically  
 
-Secret Name	Description
+---
 
-  AWS_ACCESS_KEY_ID	IAM Access Key
-  
-  AWS_SECRET_ACCESS_KEY	IAM Secret Key
+## ⚙️ Tech Stack
 
+| Category | Tools |
+|--------|------|
+| Cloud | AWS S3, IAM |
+| CI/CD | GitHub Actions |
+| Frontend | HTML, CSS, JavaScript |
+| Version Control | Git, GitHub |
 
-📌 Stored securely in:
+---
 
-  Repository → Settings → Secrets → Actions
+## 🔄 CI/CD Pipeline
 
+### Trigger
+- Push to main branch  
 
-☁️ AWS Setup
+### Steps
+- Checkout code  
+- Configure AWS credentials  
+- Sync files to S3  
+- Deploy website automatically  
 
-  ✔️ Created IAM user with S3 permissions
-  
-  ✔️ Generated Access Key & Secret Key
-  
-  ✔️ Created S3 bucket manually
-  
-  ✔️ Enabled static website hosting
-  
-  ✔️ Configured public access via bucket policy
+---
 
+## 🔐 Security
 
-📂 Deployment Steps
+- Credentials stored securely using GitHub Secrets  
+- No hardcoding of sensitive data  
 
-1️⃣ Clone Repository
+| Secret | Purpose |
+|------|--------|
+| AWS_ACCESS_KEY_ID | Access Key |
+| AWS_SECRET_ACCESS_KEY | Secret Key |
 
+---
+
+## ☁️ AWS Configuration
+
+- Created IAM user with S3 access  
+- Generated access keys  
+- Created S3 bucket  
+- Enabled static hosting  
+- Configured public access  
+
+---
+
+## 📂 Deployment Steps
+
+### 1️⃣ Clone Repository
+```bash
 git clone <your-repo-url>
-
 cd <repo-folder>
+```
 
-2️⃣ Create S3 Bucket
+### 2️⃣ Setup S3
+- Create bucket  
+- Enable static hosting  
+- Set index.html  
 
-Choose a unique bucket name (e.g., adnan-portfolio-cicd)
+### 3️⃣ Configure IAM
+- Create user  
+- Attach S3 permissions  
+- Generate keys  
 
-Enable Static Website Hosting
-
-Set entry point:
-
-index.html
-
-3️⃣ Configure IAM
-
-Create IAM user
-
-Attach S3 permissions
-
-Generate Access Key & Secret Key
-
-4️⃣ Add GitHub Secrets
-
-Go to:
-
+### 4️⃣ Add GitHub Secrets
 Settings → Secrets → Actions
 
 Add:
+AWS_ACCESS_KEY_ID  
+AWS_SECRET_ACCESS_KEY  
 
-AWS_ACCESS_KEY_ID
-AWS_SECRET_ACCESS_KEY
+---
 
+## ⚙️ GitHub Actions Workflow
 
-5️⃣ GitHub Actions Workflow
+```yaml
 name: Deploy to S3
 
 on:
@@ -146,54 +143,51 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ap-south-1
 
-      - name: Sync files to S3
-        run: |
-          aws s3 sync . s3://<your-bucket-name> --delete
+      - name: Deploy to S3
+        run: aws s3 sync . s3://<your-bucket-name> --delete
+```
 
+---
 
-🌐 Live Website
+## 🌐 Live Website
 
-  http://<your-bucket-name>.s3-website-<region>.amazonaws.com
+http://<your-bucket-name>.s3-website-<region>.amazonaws.com
 
+---
 
-📸 Output
+## 📸 Output
 
-  ✔ Portfolio hosted on AWS S3
-  
-  ✔ CI/CD pipeline fully automated
-  
-  ✔Real-time updates on every push
+✔ Website hosted on AWS  
+✔ Fully automated deployment  
+✔ Real-time updates  
 
+---
 
-💡 Key Learnings
+## 💡 Key Learnings
 
-  CI/CD pipeline using GitHub Actions
-  
-  AWS S3 static website hosting
-  
-  Secure credential management using GitHub Secrets
-  
-  Automation of deployment workflow
+- CI/CD with GitHub Actions  
+- AWS S3 static hosting  
+- Secure credential handling  
+- Deployment automation  
 
+---
 
-🚀 Future Enhancements
+## 🚀 Future Enhancements
 
-  🌍 Add CloudFront CDN for performance
-  
-  🔒 Enable HTTPS using AWS ACM
-  
-  🌐 Attach custom domain using Route 53
-  
-  📊 Add monitoring and logging
+- Add CloudFront CDN  
+- Enable HTTPS (ACM)  
+- Custom domain (Route 53)  
+- Monitoring & logging  
 
+---
 
-👨‍💻 Author
+## 👨‍💻 Author
 
-  Adnan Shaikh
+Adnan Shaikh  
+DevOps & Cloud Enthusiast  
 
-  🚀 DevOps & Cloud Enthusiast
+---
 
+## ⭐ Support
 
-⭐ Support
-
-  If you like this project, please consider giving it a ⭐ on GitHub!
+If you found this useful, give it a star on GitHub!
